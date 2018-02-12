@@ -2,14 +2,34 @@ package com.remindme.restweb.model;
 
 import java.util.Date;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+
+@Entity
+@Table(name="USER")
 public class StarUser {
+	@Id
+	@GeneratedValue(strategy=GenerationType.AUTO)
+	@Column(name="ID")
 	private int id;
+	@Column(name="FIRST_NAME")
 	private String firstName;
+	@Column(name="LAST_NAME")
 	private String lastName;
+	@Column(name="EMAIL_ID")
 	private String emailId;
+	@Column(name="MESSAGE")
 	private String message;
-	private Date statTime;
+	@Column(name="START_TIME")
+	private Date startTime;
+	@Column(name="ITERATION")
 	private double itration;
+	
 	public int getId() {
 		return id;
 	}
@@ -40,11 +60,11 @@ public class StarUser {
 	public void setMessage(String message) {
 		this.message = message;
 	}
-	public Date getStatTime() {
-		return statTime;
+	public Date getStartTime() {
+		return startTime;
 	}
-	public void setStatTime(Date statTime) {
-		this.statTime = statTime;
+	public void setStatTime(Date startTime) {
+		this.startTime = startTime;
 	}
 	public double getItration() {
 		return itration;

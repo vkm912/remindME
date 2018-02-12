@@ -1,17 +1,19 @@
 package com.remindme.restweb.services;
 
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.remindme.restweb.model.StarUser;
+import com.remindme.restweb.repository.StarUserDao;
 
 @Service
 public class RemindMeServiceImpl implements RemindMeService {
 	
 	List<StarUser> users = new ArrayList<>();
+	@Autowired
+	private StarUserDao userDao;
 
 	@Override
 	public boolean registerUser(StarUser user) {
@@ -38,6 +40,9 @@ public class RemindMeServiceImpl implements RemindMeService {
 			users.add(user1);
 			users.add(user2);
 			users.add(user3);
+			userDao.createUser(user1);
+			userDao.createUser(user2);
+			userDao.createUser(user3);
 		}
 		return true;
 	}
