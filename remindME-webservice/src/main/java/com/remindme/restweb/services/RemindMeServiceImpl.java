@@ -23,17 +23,19 @@ public class RemindMeServiceImpl implements RemindMeService {
 			return true;
 		} else {
 			StarUser user1 = new StarUser();
-			user1.setId(1);
+			//No need to setup the id here as it is an auto generated value. 
+			//In case if you do this by mistake you would get 
+			//org.hibernate.PersistentObjectException: detached entity passed to 
+			//persist: com.remindme.restweb.model.StarUser exception.
+			//user1.setId(1);
 			user1.setFirstName("VIVEK");
 			user1.setLastName("MISHRA");
 			user1.setEmailId("vivek.mishrajbp@gmail");
 			StarUser user2 = new StarUser();
-			user2.setId(2);
 			user2.setFirstName("VIVEK2");
 			user2.setLastName("MISHRA2");
 			user2.setEmailId("vivekkmishra912@gmail");
 			StarUser user3 = new StarUser();
-			user3.setId(3);
 			user3.setFirstName("VIVEK3");
 			user3.setLastName("MISHRA3");
 			user3.setEmailId("vivek.mishrajbp@gmail");

@@ -21,13 +21,13 @@ public class StarUserDaoImpl implements StarUserDao{
 	public boolean createUser(StarUser user) {
 		Session session = null;
 		try {
-			session = sessionFactory.openSession();
+			/*session = sessionFactory.openSession();
 			session.beginTransaction();
 			session.save(user);
-			session.getTransaction().commit();
-			/*entityManager.clear();
+			session.getTransaction().commit();*/
+			entityManager.clear();
 			entityManager.persist(user);
-			entityManager.persist(user);*/
+			entityManager.persist(user);
 			return true;
 		} catch (Exception e) {
 			e.printStackTrace();
