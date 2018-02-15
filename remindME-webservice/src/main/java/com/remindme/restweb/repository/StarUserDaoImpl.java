@@ -53,11 +53,16 @@ public class StarUserDaoImpl implements StarUserDao{
 		return null;
 	}
 	@Override
-	public boolean removeNotification(StarUser user) {
-		if(user!=null) {
-			entityManager.remove(user);
+	public boolean removeNotification(int id) {
+		StarUser notification = getNotificationDtl(id);
+		if(notification!=null) {
+			entityManager.remove(notification);
 			return true;
 		}
 		return false;
+	}
+	@Override
+	public StarUser getNotificationDtl(int id) {
+		return entityManager.find(StarUser.class, id);
 	}
 }

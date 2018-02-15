@@ -71,8 +71,8 @@ public class RemindMeServiceImpl implements RemindMeService {
 	}
 
 	@Override
-	public boolean removeNotification(StarUser user) {
-		return userDao.removeNotification(user);
+	public boolean removeNotification(int id) {
+		return userDao.removeNotification(id);
 	}
 
 }

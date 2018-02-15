@@ -34,8 +34,8 @@ public class RemindMeControllerMain {
 		return service.getUserDetails(emailId);
 	}
 	
-	@RequestMapping("/Removenot")
-	public boolean removeNotification(@RequestBody StarUser user) {
-		return service.removeNotification(user);
+	@RequestMapping("/Removenot/{id}")
+	public boolean removeNotification(@PathVariable int id) {
+		return service.removeNotification(id);
 	}
 }

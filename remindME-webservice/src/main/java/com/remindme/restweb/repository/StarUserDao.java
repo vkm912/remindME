@@ -12,6 +12,7 @@ public interface StarUserDao {
     boolean createUser(StarUser user);
     int updateUser(String emailId);
     int deleteUser(String emailId);
-    boolean removeNotification(StarUser user);
+    boolean removeNotification(int id);
     List<StarUser> getUserDetails(String emailId);
+    StarUser getNotificationDtl(int id);
 }
