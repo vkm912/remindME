@@ -19,9 +19,9 @@ public class RemindMeServiceImpl implements RemindMeService {
 	public boolean registerUser(StarUser user) {
 		// TODO Auto-generated method stub
 		if(user!=null) {
-			users.add(user);
+			userDao.createUser(user);
 			return true;
-		} else {
+		} /*else {
 			StarUser user1 = new StarUser();
 			//No need to setup the id here as it is an auto generated value. 
 			//In case if you do this by mistake you would get 
@@ -43,9 +43,7 @@ public class RemindMeServiceImpl implements RemindMeService {
 			users.add(user2);
 			users.add(user3);
 			userDao.createUser(user1);
-			userDao.createUser(user2);
-			userDao.createUser(user3);
-		}
+		}*/
 		return true;
 	}
 
@@ -64,12 +62,17 @@ public class RemindMeServiceImpl implements RemindMeService {
 
 	@Override
 	public List<StarUser> getUserDetails(String emailId) {
-		List<StarUser> details= new ArrayList<>();
+		/*List<StarUser> details= new ArrayList<>();
 		users.forEach(user->{
 			if(user.getEmailId().equals(emailId))
 				details.add(user);
-		});
-		return details;
+		});*/
+		return userDao.getUserDetails(emailId);
+	}
+
+	@Override
+	public boolean removeNotification(StarUser user) {
+		return userDao.removeNotification(user);
 	}
 
 }

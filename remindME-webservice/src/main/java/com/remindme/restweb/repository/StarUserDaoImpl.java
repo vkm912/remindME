@@ -27,7 +27,6 @@ public class StarUserDaoImpl implements StarUserDao{
 			session.getTransaction().commit();*/
 			entityManager.clear();
 			entityManager.persist(user);
-			entityManager.persist(user);
 			return true;
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -46,7 +45,19 @@ public class StarUserDaoImpl implements StarUserDao{
 	}
 	@Override
 	public List<StarUser> getUserDetails(String emailId) {
-		// TODO Auto-generated method stub
+		String hql = "FROM StarUser as su WHERE su.emailId=?";
+		List<StarUser> users =entityManager.createQuery(hql).setParameter(1, emailId).getResultList();
+		if(users!=null && !users.isEmpty()) {
+			return users;
+		}
 		return null;
+	}
+	@Override
+	public boolean removeNotification(StarUser user) {
+		if(user!=null) {
+			entityManager.remove(user);
+			return true;
+		}
+		return false;
 	}
 }

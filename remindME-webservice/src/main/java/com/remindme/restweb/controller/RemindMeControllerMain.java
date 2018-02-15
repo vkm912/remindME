@@ -23,14 +23,19 @@ public class RemindMeControllerMain {
 	}
 	
 	@RequestMapping("/Add")
-	public boolean subscribe() {
+	public boolean subscribe(@RequestBody StarUser user) {
 		
-		return service.registerUser(null);
+		return service.registerUser(user);
 		
 	}
 	
 	@RequestMapping("/Get/{emailId}")
 	public List<StarUser> getAllUsers(@PathVariable String emailId){
 		return service.getUserDetails(emailId);
+	}
+	
+	@RequestMapping("/Removenot")
+	public boolean removeNotification(@RequestBody StarUser user) {
+		return service.removeNotification(user);
 	}
 }

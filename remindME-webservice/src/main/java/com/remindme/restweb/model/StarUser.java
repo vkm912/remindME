@@ -31,7 +31,7 @@ public class StarUser implements Serializable{
 	@Column(name="START_TIME")
 	private Date startTime;
 	@Column(name="ITERATION")
-	private double itration;
+	private double iteration;
 	
 	public int getId() {
 		return id;
@@ -69,11 +69,11 @@ public class StarUser implements Serializable{
 	public void setStatTime(Date startTime) {
 		this.startTime = startTime;
 	}
-	public double getItration() {
-		return itration;
+	public double getIteration() {
+		return iteration;
 	}
-	public void setItration(double itration) {
-		this.itration = itration;
+	public void setIteration(double iteration) {
+		this.iteration = iteration;
 	}
 }
 
