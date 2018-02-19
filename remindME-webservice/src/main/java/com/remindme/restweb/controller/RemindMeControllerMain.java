@@ -12,29 +12,34 @@ import com.remindme.restweb.model.StarUser;
 import com.remindme.restweb.services.RemindMeServiceImpl;
 
 @RestController
-@RequestMapping("/remindME-webservice")
+@RequestMapping("/remindME-webservice/user")
 public class RemindMeControllerMain {
 	@Autowired
 	RemindMeServiceImpl service;
 	
-	@RequestMapping("/Hi")
-	public Object sayHello() {
-		return "Hello";
+	
+	/*Yet to find a way to forward the request from one controller to another
+	@RequestMapping("/notification/{action}")
+	public Object sayHello(@PathVariable String action) {
+		return "forward:/remindME-webservice/notifications/"+action;
 	}
 	
-	@RequestMapping("/Add")
+	@RequestMapping("/notifications/{id}")
+	public String sayHi() {
+		return "Hi!";
+	}*/
+	
+	@RequestMapping("/add")
 	public boolean subscribe(@RequestBody StarUser user) {
-		
 		return service.registerUser(user);
-		
 	}
 	
-	@RequestMapping("/Get/{emailId}")
+	@RequestMapping("/get/{emailId}")
 	public List<StarUser> getAllUsers(@PathVariable String emailId){
 		return service.getUserDetails(emailId);
 	}
 	
-	@RequestMapping("/Removenot/{id}")
+	@RequestMapping("/removenot/{id}")
 	public boolean removeNotification(@PathVariable int id) {
 		return service.removeNotification(id);
 	}
