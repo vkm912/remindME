@@ -3,6 +3,7 @@ package com.remindme.restweb.model;
 import java.io.Serializable;
 import java.util.Date;
 import javax.persistence.Column;
+import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -11,11 +12,12 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name="USER")
-public class StarUser implements Serializable{
+public class User implements Serializable{
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
+	
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	@Column(name="ID")
@@ -32,6 +34,8 @@ public class StarUser implements Serializable{
 	private Date startTime;
 	@Column(name="ITERATION")
 	private double iteration;
+	@Embedded
+	private UserEmailDetail emailDtl;
 	
 	public int getId() {
 		return id;

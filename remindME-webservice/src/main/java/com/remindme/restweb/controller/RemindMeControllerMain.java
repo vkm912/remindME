@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.remindme.restweb.model.StarUser;
+import com.remindme.restweb.model.User;
 import com.remindme.restweb.services.RemindMeServiceImpl;
 
 @RestController
@@ -30,12 +30,12 @@ public class RemindMeControllerMain {
 	}*/
 	
 	@RequestMapping("/add")
-	public boolean subscribe(@RequestBody StarUser user) {
+	public boolean subscribe(@RequestBody User user) {
 		return service.registerUser(user);
 	}
 	
 	@RequestMapping("/get/{emailId}")
-	public List<StarUser> getAllUsers(@PathVariable String emailId){
+	public List<User> getAllUsers(@PathVariable String emailId){
 		return service.getUserDetails(emailId);
 	}
 	

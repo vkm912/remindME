@@ -5,18 +5,18 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import com.remindme.restweb.model.StarUser;
+import com.remindme.restweb.model.User;
 import com.remindme.restweb.repository.StarUserDao;
 
 @Service
 public class RemindMeServiceImpl implements RemindMeService {
 	
-	List<StarUser> users = new ArrayList<>();
+	List<User> users = new ArrayList<>();
 	@Autowired
 	private StarUserDao userDao;
 
 	@Override
-	public boolean registerUser(StarUser user) {
+	public boolean registerUser(User user) {
 		// TODO Auto-generated method stub
 		if(user!=null) {
 			userDao.createUser(user);
@@ -48,20 +48,20 @@ public class RemindMeServiceImpl implements RemindMeService {
 	}
 
 	@Override
-	public boolean modifyUser(StarUser user) {
+	public boolean modifyUser(User user) {
 		// TODO Auto-generated method stub
 		
 		return false;
 	}
 
 	@Override
-	public boolean removeUser(StarUser user) {
+	public boolean removeUser(User user) {
 		// TODO Auto-generated method stub
 		return false;
 	}
 
 	@Override
-	public List<StarUser> getUserDetails(String emailId) {
+	public List<User> getUserDetails(String emailId) {
 		/*List<StarUser> details= new ArrayList<>();
 		users.forEach(user->{
 			if(user.getEmailId().equals(emailId))

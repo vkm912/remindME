@@ -8,7 +8,7 @@ import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
-import com.remindme.restweb.model.StarUser;
+import com.remindme.restweb.model.User;
 
 @Transactional
 @Repository
@@ -18,7 +18,7 @@ public class StarUserDaoImpl implements StarUserDao{
 	@PersistenceContext
 	EntityManager entityManager;
 	
-	public boolean createUser(StarUser user) {
+	public boolean createUser(User user) {
 		Session session = null;
 		try {
 			/*session = sessionFactory.openSession();
@@ -44,9 +44,9 @@ public class StarUserDaoImpl implements StarUserDao{
 		return 0;
 	}
 	@Override
-	public List<StarUser> getUserDetails(String emailId) {
+	public List<User> getUserDetails(String emailId) {
 		String hql = "FROM StarUser as su WHERE su.emailId=?";
-		List<StarUser> users =entityManager.createQuery(hql).setParameter(1, emailId).getResultList();
+		List<User> users =entityManager.createQuery(hql).setParameter(1, emailId).getResultList();
 		if(users!=null && !users.isEmpty()) {
 			return users;
 		}
@@ -54,7 +54,7 @@ public class StarUserDaoImpl implements StarUserDao{
 	}
 	@Override
 	public boolean removeNotification(int id) {
-		StarUser notification = getNotificationDtl(id);
+		User notification = getNotificationDtl(id);
 		if(notification!=null) {
 			entityManager.remove(notification);
 			return true;
@@ -62,7 +62,7 @@ public class StarUserDaoImpl implements StarUserDao{
 		return false;
 	}
 	@Override
-	public StarUser getNotificationDtl(int id) {
-		return entityManager.find(StarUser.class, id);
+	public User getNotificationDtl(int id) {
+		return entityManager.find(User.class, id);
 	}
 }
