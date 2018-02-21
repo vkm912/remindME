@@ -34,8 +34,6 @@ public class User implements Serializable{
 	private Date startTime;
 	@Column(name="ITERATION")
 	private double iteration;
-	@Embedded
-	private UserEmailDetail emailDtl;
 	
 	public int getId() {
 		return id;

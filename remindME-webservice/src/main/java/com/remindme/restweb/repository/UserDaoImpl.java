@@ -12,7 +12,7 @@ import com.remindme.restweb.model.User;
 
 @Transactional
 @Repository
-public class StarUserDaoImpl implements StarUserDao{
+public class UserDaoImpl implements UserDao{
 	@Autowired
 	SessionFactory sessionFactory;
 	@PersistenceContext

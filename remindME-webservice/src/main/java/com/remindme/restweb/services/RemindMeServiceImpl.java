@@ -6,14 +6,14 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.remindme.restweb.model.User;
-import com.remindme.restweb.repository.StarUserDao;
+import com.remindme.restweb.repository.UserDao;
 
 @Service
 public class RemindMeServiceImpl implements RemindMeService {
 	
 	List<User> users = new ArrayList<>();
 	@Autowired
-	private StarUserDao userDao;
+	private UserDao userDao;
 
 	@Override
 	public boolean registerUser(User user) {
