@@ -8,6 +8,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Lob;
 import javax.persistence.Table;
 
 import com.remindme.restweb.support.NotificationStatus;
@@ -29,6 +30,7 @@ public class Notification implements Serializable{
 	private int userId;
 	@Column(name="EMAIL_ID")
 	private String emailId;
+	@Lob
 	@Column(name="MESSAGE")
 	private String message;
 	@Column(name="START_TIME")
