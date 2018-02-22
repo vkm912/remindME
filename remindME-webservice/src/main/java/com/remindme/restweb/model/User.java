@@ -8,6 +8,7 @@ import javax.persistence.Column;
 import javax.persistence.ElementCollection;
 import javax.persistence.Embedded;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -31,7 +32,7 @@ public class User implements Serializable {
 	private String firstName;
 	@Column(name = "LAST_NAME")
 	private String lastName;
-	@ElementCollection
+	@ElementCollection(fetch=FetchType.EAGER)
 	@JoinTable(name = "USER_EMAIL_DETAILS",
 	           joinColumns = @JoinColumn(name = "USER_ID"))
 	@Column(name = "EMAIL_ADDRESS")
