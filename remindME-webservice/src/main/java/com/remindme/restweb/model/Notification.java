@@ -33,9 +33,10 @@ public class Notification implements Serializable {
 	 * @Column(name="USER_ID") private int userId;
 	 */
 	@ManyToOne
-	@JoinTable(name = "USER_NOTIFICATION_MAP", 
+	@JoinColumn(name = "USER_ID")
+	/*@JoinTable(name = "USER_NOTIFICATION_MAP", 
 	           joinColumns = @JoinColumn(name = "NOTIFICATION_ID"), 
-	           inverseJoinColumns = @JoinColumn(name = "USER_ID"))
+	           inverseJoinColumns = @JoinColumn(name = "USER_ID"))*/
 	private User user;
 	@Column(name = "EMAIL_ID")
 	private String emailId;

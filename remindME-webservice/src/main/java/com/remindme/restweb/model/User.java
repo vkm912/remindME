@@ -16,6 +16,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.Table;
 
+import org.hibernate.annotations.SelectBeforeUpdate;
+
 @Entity
 @Table(name = "USER")
 public class User implements Serializable {
