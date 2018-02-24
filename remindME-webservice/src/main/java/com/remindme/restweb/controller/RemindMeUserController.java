@@ -9,13 +9,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.remindme.restweb.model.User;
-import com.remindme.restweb.services.RemindMeServiceImpl;
+import com.remindme.restweb.services.RemindMeUserServiceImpl;
 
 @RestController
 @RequestMapping("/remindME-webservice/user")
-public class RemindMeControllerMain {
+public class RemindMeUserController {
 	@Autowired
-	RemindMeServiceImpl service;
+	RemindMeUserServiceImpl service;
 	
 	
 	/*Yet to find a way to forward the request from one controller to another
@@ -35,12 +35,8 @@ public class RemindMeControllerMain {
 	}
 	
 	@RequestMapping("/get/{emailId}")
-	public List<User> getAllUsers(@PathVariable String emailId){
+	public User getAllUsers(@PathVariable String emailId){
 		return service.getUserDetails(emailId);
 	}
-	
-	@RequestMapping("/removenot/{id}")
-	public boolean removeNotification(@PathVariable int id) {
-		return service.removeNotification(id);
-	}
+
 }

@@ -18,7 +18,7 @@ public class UserDaoImpl implements UserDao{
 	@PersistenceContext
 	EntityManager entityManager;
 	
-	public boolean createUser(User user) {
+	public boolean registerUser(User user) {
 		Session session = null;
 		try {
 			/*session = sessionFactory.openSession();
@@ -33,36 +33,26 @@ public class UserDaoImpl implements UserDao{
 		}
 		return false;
 	}
+	
 	@Override
-	public int updateUser(String emailId) {
+	public boolean updateUser(User user) {
 		// TODO Auto-generated method stub
-		return 0;
+		return true;
 	}
+	
 	@Override
-	public int deleteUser(String emailId) {
+	public boolean deleteUser(String emailId) {
 		// TODO Auto-generated method stub
-		return 0;
+		return true;
 	}
+	
 	@Override
-	public List<User> getUserDetails(String emailId) {
-		String hql = "FROM StarUser as su WHERE su.emailId=?";
-		List<User> users =entityManager.createQuery(hql).setParameter(1, emailId).getResultList();
-		if(users!=null && !users.isEmpty()) {
-			return users;
+	public User getUserDetails(String emailId) {
+		String hql = "from User as su where su.emailId=?";
+		User user =(User) entityManager.createQuery(hql).setParameter(1, emailId).getSingleResult();
+		if(user!=null) {
+			return user;
 		}
 		return null;
-	}
-	@Override
-	public boolean removeNotification(int id) {
-		User notification = getNotificationDtl(id);
-		if(notification!=null) {
-			entityManager.remove(notification);
-			return true;
-		}
-		return false;
-	}
-	@Override
-	public User getNotificationDtl(int id) {
-		return entityManager.find(User.class, id);
 	}
 }

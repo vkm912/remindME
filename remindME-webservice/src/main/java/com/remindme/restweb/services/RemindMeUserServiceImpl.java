@@ -9,7 +9,7 @@ import com.remindme.restweb.model.User;
 import com.remindme.restweb.repository.UserDao;
 
 @Service
-public class RemindMeServiceImpl implements RemindMeService {
+public class RemindMeUserServiceImpl implements RemindMeUserService {
 	
 	List<User> users = new ArrayList<>();
 	@Autowired
@@ -19,7 +19,7 @@ public class RemindMeServiceImpl implements RemindMeService {
 	public boolean registerUser(User user) {
 		// TODO Auto-generated method stub
 		if(user!=null) {
-			userDao.createUser(user);
+			userDao.registerUser(user);
 			return true;
 		} /*else {
 			StarUser user1 = new StarUser();
@@ -61,18 +61,13 @@ public class RemindMeServiceImpl implements RemindMeService {
 	}
 
 	@Override
-	public List<User> getUserDetails(String emailId) {
+	public User getUserDetails(String emailId) {
 		/*List<StarUser> details= new ArrayList<>();
 		users.forEach(user->{
 			if(user.getEmailId().equals(emailId))
 				details.add(user);
 		});*/
 		return userDao.getUserDetails(emailId);
-	}
-
-	@Override
-	public boolean removeNotification(int id) {
-		return userDao.removeNotification(id);
 	}
 
 }
