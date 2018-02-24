@@ -14,12 +14,14 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
+import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 
 import org.hibernate.annotations.SelectBeforeUpdate;
 
 @Entity
 @Table(name = "USER")
+@NamedQuery(name="User.byEmailId", query = "from User where primaryEmailId = ?")
 public class User implements Serializable {
 	/**
 	 * 
@@ -34,6 +36,8 @@ public class User implements Serializable {
 	private String firstName;
 	@Column(name = "LAST_NAME")
 	private String lastName;
+	@Column(name = "EMAIL_ID")
+	private String primaryEmailId;
 	@ElementCollection(fetch=FetchType.EAGER)
 	@JoinTable(name = "USER_EMAIL_DETAILS",
 	           joinColumns = @JoinColumn(name = "USER_ID"))
@@ -45,6 +49,14 @@ public class User implements Serializable {
 	private Date startTime;
 	@Column(name = "ITERATION")
 	private double iteration;
+
+	public String getPrimaryEmailId() {
+		return primaryEmailId;
+	}
+
+	public void setPrimaryEmailId(String primaryEmailId) {
+		this.primaryEmailId = primaryEmailId;
+	}
 
 	public int getId() {
 		return id;

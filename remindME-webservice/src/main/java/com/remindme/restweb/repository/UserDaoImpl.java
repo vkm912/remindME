@@ -48,8 +48,7 @@ public class UserDaoImpl implements UserDao{
 	
 	@Override
 	public User getUserDetails(String emailId) {
-		String hql = "from User as su where su.emailId=?";
-		User user =(User) entityManager.createQuery(hql).setParameter(1, emailId).getSingleResult();
+		User user =(User) entityManager.createNamedQuery("User.byEmailId", User.class).setParameter(1, emailId).getSingleResult();
 		if(user!=null) {
 			return user;
 		}
