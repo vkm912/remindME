@@ -12,12 +12,17 @@ import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.Lob;
 import javax.persistence.ManyToOne;
+import javax.persistence.NamedNativeQueries;
+import javax.persistence.NamedNativeQuery;
+import javax.persistence.NamedQueries;
 import javax.persistence.Table;
 
 import com.remindme.restweb.support.NotificationStatus;
 
 @Entity
 @Table(name = "NOTIFICATIONS")
+//@NamedNativeQueries({name = "Notification.findByUserId", query = "select * from notifications where user_id = ?"})
+@NamedNativeQuery(name = "Notification.findByUserId", query = "select * from notifications where user_id = ?")
 public class Notification implements Serializable {
 
 	/**
@@ -45,6 +50,12 @@ public class Notification implements Serializable {
 	private String message;
 	@Column(name = "START_TIME")
 	private Date startTime;
+	@Column(name = "LAST_SENT")
+	private Date lastSentTime;
+	@Column(name = "LAST_SENT_STATUS")
+	private NotificationStatus lastSentStatus;
+	@Column(name = "ERROR_MESSAGE")
+	private String errorMessage;
 	@Column(name = "ITERATION")
 	private double iteration;
 	@Column(name = "STATUS")

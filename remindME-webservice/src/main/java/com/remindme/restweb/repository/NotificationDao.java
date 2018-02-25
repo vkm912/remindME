@@ -1,9 +1,11 @@
 package com.remindme.restweb.repository;
 
-import com.remindme.restweb.model.User;
+import java.util.List;
+import com.remindme.restweb.model.Notification;
 
 public interface NotificationDao {
 	
 	boolean removeNotification(int id);
-	User getNotificationDtl(int id);
+	Notification getNotificationDtl(int id);
+	List<Notification> getAllUserNotifications(int userId);
 }
