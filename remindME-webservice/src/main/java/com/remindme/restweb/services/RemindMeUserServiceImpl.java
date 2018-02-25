@@ -49,15 +49,7 @@ public class RemindMeUserServiceImpl implements RemindMeUserService {
 
 	@Override
 	public boolean modifyUser(User user) {
-		// TODO Auto-generated method stub
-		
-		return false;
-	}
-
-	@Override
-	public boolean removeUser(User user) {
-		// TODO Auto-generated method stub
-		return false;
+		return userDao.modifyUser(user);
 	}
 
 	@Override
@@ -68,6 +60,11 @@ public class RemindMeUserServiceImpl implements RemindMeUserService {
 				details.add(user);
 		});*/
 		return userDao.getUserDetails(emailId);
+	}
+
+	@Override
+	public boolean removeUser(String emailId) {
+		return userDao.removeUser(emailId);
 	}
 
 }

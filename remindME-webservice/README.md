@@ -9,10 +9,7 @@ Request Body :
     "primaryEmailId": "vivek.mishrajbp@gmail",
     "emailIds": [
         "vivek.mishrajbp@gmail"
-    ],
-    "message": "TEST",
-    "startTime": null,
-    "iteration": 1
+    ]
 }
 Response : true 
 
@@ -32,18 +29,13 @@ Sample Inserts :-
 INSERT INTO remindme_db.user
 (id,
 first_name,
-iteration,
 last_name,
-message,
-email_id,
-start_time)
+email_id)
 VALUES
 (1,
 'VIVEK',
-1,
 'MISHRA',
-'TEST',
-'vivek.mishrajbp@gmail', null);
+'vivek.mishrajbp@gmail');
 
 
 INSERT INTO remindme_db.user_email_details

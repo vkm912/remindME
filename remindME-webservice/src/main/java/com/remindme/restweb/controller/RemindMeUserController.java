@@ -38,5 +38,15 @@ public class RemindMeUserController {
 	public User getAllUsers(@PathVariable String emailId){
 		return service.getUserDetails(emailId);
 	}
+	
+	@RequestMapping("/remove/{emailId}")
+	public boolean removeUsers(@PathVariable String emailId){
+		return service.removeUser(emailId);
+	}
+	
+	@RequestMapping("/modify")
+	public boolean modifyUser(@RequestBody User user){
+		return service.modifyUser(user);
+	}
 
 }

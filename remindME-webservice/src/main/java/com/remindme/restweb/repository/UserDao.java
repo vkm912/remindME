@@ -10,8 +10,8 @@ import com.remindme.restweb.model.User;
 public interface UserDao {
 	
     boolean registerUser(User user);
-    boolean updateUser(User user);
-    boolean deleteUser(String emailId);
+    boolean modifyUser(User user);
     User getUserDetails(String emailId);
+    boolean removeUser(String emailId);
     
 }

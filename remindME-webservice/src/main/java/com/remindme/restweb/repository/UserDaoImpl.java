@@ -35,23 +35,33 @@ public class UserDaoImpl implements UserDao{
 	}
 	
 	@Override
-	public boolean updateUser(User user) {
-		// TODO Auto-generated method stub
-		return true;
-	}
-	
-	@Override
-	public boolean deleteUser(String emailId) {
-		// TODO Auto-generated method stub
+	public boolean modifyUser(User user) {
+		User actualUser = getUserDetails(user.getPrimaryEmailId());
+		actualUser.setFirstName(user.getFirstName());
+		actualUser.setLastName(user.getLastName());
+		actualUser.setPrimaryEmailId(user.getPrimaryEmailId());
+		actualUser.setEmailIds(user.getEmailIds());
 		return true;
 	}
 	
 	@Override
 	public User getUserDetails(String emailId) {
-		User user =(User) entityManager.createNamedQuery("User.byEmailId", User.class).setParameter(1, emailId).getSingleResult();
+		User user =(User) entityManager.createNamedQuery("User.findByEmailId", User.class).setParameter(1, emailId).getSingleResult();
 		if(user!=null) {
 			return user;
 		}
 		return null;
+	}
+
+	@Override
+	public boolean removeUser(String emailId) {
+		/*int usersDeleted = entityManager.createNamedQuery("User.removeByEmailId").setParameter(1, emailId).executeUpdate();
+		if(usersDeleted==1) {
+			return true;
+		}
+		return false;*/
+		User user = getUserDetails(emailId);
+		entityManager.remove(user);
+		return true;
 	}
 }
