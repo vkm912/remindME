@@ -25,6 +25,31 @@ URL : http://localhost:8080/remindME-webservice/Removenot/{id}
 Request Type : GET
 Response : true 
 
+Get Notification Detail:-
+
+http://localhost:8080/remindME-webservice/notification/get/{id}
+
+Rquest Type : GET
+Response : Notification.json
+{
+    "id": 1,
+    "user": {
+        "id": 1,
+        "firstName": "VIVEK",
+        "lastName": "MISHRA",
+        "primaryEmailId": "vivek.mishrajbp@gmail",
+        "emailIds": [
+            "vivek.mishrajbp@gmail",
+            "vivekkmishra912@gmail"
+        ]
+    },
+    "emailId": "vivek.mishrajbp@gmail",
+    "message": "Test",
+    "startTime": null,
+    "iteration": 1,
+    "status": "ENABLE"
+}
+
 Sample Inserts :-
 
 INSERT INTO remindme_db.user

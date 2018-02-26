@@ -4,3 +4,6 @@ save() and persist() do almost the same things with slightly different semantics
 
 2.)Exception : java.lang.IllegalArgumentException: Update/delete queries cannot be typed
 Reason : While calling entityManager.createNamedQuery for an update/delete named query you should not provide the class parameter as it doesn't return an object.  
+
+3.)Exception : javax.persistence.TransactionRequiredException: No EntityManager with actual transaction available for current thread - cannot reliably process 'persist' call
+Reason : Persist operation should be a part of database transaction. In order to initialte the transaction it is better to annotate your repository class with @Transactional annotation.

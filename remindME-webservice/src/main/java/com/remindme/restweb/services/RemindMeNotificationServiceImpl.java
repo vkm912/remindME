@@ -31,4 +31,9 @@ public class RemindMeNotificationServiceImpl implements RemindMeNotificationServ
 		return null;
 	}
 
+	@Override
+	public boolean addNotification(Notification notification) {
+		return notificationDao.addNotification(notification);
+	}
+
 }
