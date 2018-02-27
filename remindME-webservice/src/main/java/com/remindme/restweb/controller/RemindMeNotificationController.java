@@ -16,12 +16,7 @@ public class RemindMeNotificationController {
 	@Autowired
 	RemindMeNotificationService service;
 	
-	@RequestMapping("/hi")
-	public String sayHi() {
-		return "Hi!";
-	}
-	
-	@RequestMapping("/removenot/{id}")
+	@RequestMapping("/removeNotification/{id}")
 	public boolean removeNotification(@PathVariable int id) {
 		return service.removeNotification(id);
 	}
@@ -34,5 +29,10 @@ public class RemindMeNotificationController {
 	@RequestMapping("/add")
 	public boolean addNotification(@RequestBody Notification notification) {
 		return service.addNotification(notification);
+	}
+	
+	@RequestMapping("/removeAllNotifications/{userId}")
+	public boolean removeAllUserNotifications(@PathVariable int userId) {
+		return service.removeAllUserNotifications(userId);
 	}
 }

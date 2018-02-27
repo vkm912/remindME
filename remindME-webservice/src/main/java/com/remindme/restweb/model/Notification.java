@@ -15,14 +15,17 @@ import javax.persistence.ManyToOne;
 import javax.persistence.NamedNativeQueries;
 import javax.persistence.NamedNativeQuery;
 import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 
 import com.remindme.restweb.support.NotificationStatus;
 
 @Entity
 @Table(name = "NOTIFICATIONS")
-//@NamedNativeQueries({name = "Notification.findByUserId", query = "select * from notifications where user_id = ?"})
-@NamedNativeQuery(name = "Notification.findByUserId", query = "select * from notifications where user_id = ?")
+@NamedQueries({@NamedQuery(name = "Notification.findByUserId", query = "from Notification where user.id = ?"),
+	           @NamedQuery(name = "Notification.removeByUserId", query = "delete from Notification where user.id = ?"),
+})
+
 public class Notification implements Serializable {
 
 	/**

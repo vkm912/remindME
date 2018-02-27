@@ -65,4 +65,4 @@ VALUES
 INSERT INTO remindme_db.notifications
 (id,email_id,error_message,iteration,last_sent_status,last_sent,message,start_time,status,user_id)
 VALUES
-(1,"vivek.mishrajbp@gmail",null,1,2,null,"Test",null,0,1);
+(1,"vivek.mishrajbp@gmail",null,1,2,null,"notification1",null,0,1);

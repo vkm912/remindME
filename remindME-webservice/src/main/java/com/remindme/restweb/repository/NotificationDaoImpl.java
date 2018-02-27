@@ -53,4 +53,31 @@ public class NotificationDaoImpl implements NotificationDao {
 		return false;
 	}
 
+	@Override
+	public boolean removeAllUserNotifications(int userId) {
+		try{
+			int rows = entityManager.createNamedQuery("Notification.removeByUserId").setParameter(1, userId).executeUpdate();
+			System.out.println("***************** Number of rows deleted : "+rows+"*********************");
+			return true;
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return false;
+	}
+
+	@Override
+	public boolean modifyNotification(Notification notification) {
+		try {
+			Notification actualNotification = getNotificationDtl(notification.getId());
+			actualNotification.setMessage(notification.getMessage());
+			actualNotification.setEmailId(notification.getEmailId());
+			actualNotification.setIteration(notification.getIteration());
+			actualNotification.setStatus(notification.getStatus());
+			actualNotification.setStartTime(notification.getStartTime());
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return false;
+	}
+
 }

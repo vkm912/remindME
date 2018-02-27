@@ -36,4 +36,9 @@ public class RemindMeNotificationServiceImpl implements RemindMeNotificationServ
 		return notificationDao.addNotification(notification);
 	}
 
+	@Override
+	public boolean removeAllUserNotifications(int userId) {
+		return notificationDao.removeAllUserNotifications(userId);
+	}
+
 }
