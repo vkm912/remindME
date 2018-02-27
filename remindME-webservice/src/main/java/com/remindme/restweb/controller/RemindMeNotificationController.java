@@ -35,4 +35,9 @@ public class RemindMeNotificationController {
 	public boolean removeAllUserNotifications(@PathVariable int userId) {
 		return service.removeAllUserNotifications(userId);
 	}
+	
+	@RequestMapping("/modifyNotification")
+	public boolean modifyNotification(@RequestBody Notification notification) {
+		return service.modifyNotification(notification);
+	}
 }

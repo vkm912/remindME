@@ -11,4 +11,5 @@ public interface RemindMeNotificationService {
 	List<Notification> getAllUserNotifications(int userId);
 	boolean addNotification(Notification notification);
 	boolean removeAllUserNotifications(int userId);
+	boolean modifyNotification(Notification notification);
 }

@@ -74,6 +74,7 @@ public class NotificationDaoImpl implements NotificationDao {
 			actualNotification.setIteration(notification.getIteration());
 			actualNotification.setStatus(notification.getStatus());
 			actualNotification.setStartTime(notification.getStartTime());
+			return true;
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
