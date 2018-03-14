@@ -1,7 +1,5 @@
 package com.remindme.restweb.services;
 
-import java.util.List;
-
 import com.remindme.restweb.model.User;
 
 public interface RemindMeUserService {
