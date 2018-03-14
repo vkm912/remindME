@@ -1,12 +1,11 @@
 package com.remindme.restweb.model;
 
 import java.io.Serializable;
-import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
+
 import javax.persistence.Column;
 import javax.persistence.ElementCollection;
-import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -17,8 +16,6 @@ import javax.persistence.JoinTable;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
-
-import org.hibernate.annotations.SelectBeforeUpdate;
 
 @Entity
 @Table(name = "USER")
@@ -46,7 +43,7 @@ public class User implements Serializable {
 	@JoinTable(name = "USER_EMAIL_DETAILS",
 	           joinColumns = @JoinColumn(name = "USER_ID"))
 	@Column(name = "EMAIL_ADDRESS")
-	private Set<String> emailIds = new HashSet();
+	private Set<String> emailIds = new HashSet<>();
 
 	public String getPrimaryEmailId() {
 		return primaryEmailId;

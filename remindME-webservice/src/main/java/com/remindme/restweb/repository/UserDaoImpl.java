@@ -1,13 +1,13 @@
 package com.remindme.restweb.repository;
 
-import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
-import org.hibernate.Session;
+
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
+
 import com.remindme.restweb.model.User;
 
 @Transactional
@@ -19,7 +19,7 @@ public class UserDaoImpl implements UserDao{
 	EntityManager entityManager;
 	
 	public boolean registerUser(User user) {
-		Session session = null;
+		//Session session = null;
 		try {
 			/*session = sessionFactory.openSession();
 			session.beginTransaction();
